@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "group": "more-ladders",
   "key": {
-    "|": {
-      "item": "minecraft:gold_nugget"
-    },
-    "#": {
-      "item": "minecraft:gold_ingot"
-    }
+    "|": "minecraft:gold_nugget",
+    "#": "minecraft:gold_ingot"
   },
   "pattern": [
     "| |",

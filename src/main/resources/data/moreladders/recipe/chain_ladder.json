@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "group": "more-ladders",
   "key": {
-    "|": {
-      "item": "minecraft:iron_nugget"
-    },
-    "#": {
-      "item": "minecraft:chain"
-    }
+    "|": "minecraft:iron_nugget",
+    "#": "minecraft:chain"
   },
   "pattern": [
     "| |",

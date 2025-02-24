@@ -7,33 +7,47 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.Identifier;
 
 public class ModBlocks {
-    public static final Block SPRUCE_LADDER = registerBlock("spruce_ladder", new LadderBlock(AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER)));
-    public static final Block BIRCH_LADDER = registerBlock("birch_ladder", new LadderBlock(AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER)));
-    public static final Block DARK_OAK_LADDER = registerBlock("dark_oak_ladder", new LadderBlock(AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER)));
-    public static final Block JUNGLE_LADDER = registerBlock("jungle_ladder", new LadderBlock(AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER)));
-    public static final Block WARPED_LADDER = registerBlock("warped_ladder", new LadderBlock(AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER)));
-    public static final Block CRIMSON_LADDER = registerBlock("crimson_ladder", new LadderBlock(AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER)));
-    public static final Block IRON_LADDER = registerBlock("iron_ladder", new LadderBlock(AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.METAL).requiresTool()));
-    public static final Block ACACIA_LADDER = registerBlock("acacia_ladder", new LadderBlock(AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER)));
-    public static final Block CHAIN_LADDER = registerBlock("chain_ladder", new LadderBlock(AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.CHAIN).requiresTool()));
-    public static final Block CHERRY_LADDER = registerBlock("cherry_ladder", new LadderBlock(AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER)));
-    public static final Block BAMBOO_LADDER = registerBlock("bamboo_ladder", new LadderBlock(AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.BAMBOO)));
-    public static final Block MANGROVE_LADDER = registerBlock("mangrove_ladder", new LadderBlock(AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER)));
-    public static final Block GOLD_LADDER = registerBlock("gold_ladder", new LadderBlock(AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.METAL).requiresTool()));
-    public static final Block COPPER_LADDER = registerBlock("copper_ladder", new OxidizableLadder(AbstractBlock.Settings.copy(Blocks.LADDER).ticksRandomly(), Oxidizable.OxidationLevel.UNAFFECTED));
-    public static final Block EXPOSED_COPPER_LADDER = registerBlock("exposed_copper_ladder", new OxidizableLadder(AbstractBlock.Settings.copy(Blocks.LADDER).ticksRandomly(), Oxidizable.OxidationLevel.EXPOSED));
-    public static final Block WEATHERED_COPPER_LADDER = registerBlock("weathered_copper_ladder", new OxidizableLadder(AbstractBlock.Settings.copy(Blocks.LADDER).ticksRandomly(), Oxidizable.OxidationLevel.WEATHERED));
-    public static final Block OXIDIZED_COPPER_LADDER = registerBlock("oxidized_copper_ladder", new OxidizableLadder(AbstractBlock.Settings.copy(Blocks.LADDER), Oxidizable.OxidationLevel.OXIDIZED));
-    public static final Block WAXED_COPPER_LADDER = registerBlock("waxed_copper_ladder", new OxidizableLadder(AbstractBlock.Settings.copy(Blocks.LADDER), Oxidizable.OxidationLevel.UNAFFECTED));
-    public static final Block WAXED_EXPOSED_COPPER_LADDER = registerBlock("waxed_exposed_copper_ladder", new OxidizableLadder(AbstractBlock.Settings.copy(Blocks.LADDER), Oxidizable.OxidationLevel.EXPOSED));
-    public static final Block WAXED_WEATHERED_COPPER_LADDER = registerBlock("waxed_weathered_copper_ladder", new OxidizableLadder(AbstractBlock.Settings.copy(Blocks.LADDER), Oxidizable.OxidationLevel.WEATHERED));
-    public static final Block WAXED_OXIDIZED_COPPER_LADDER = registerBlock("waxed_oxidized_copper_ladder", new OxidizableLadder(AbstractBlock.Settings.copy(Blocks.LADDER), Oxidizable.OxidationLevel.OXIDIZED));
+    public static final Block SPRUCE_LADDER = registerNormal("spruce_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER));
+    public static final Block BIRCH_LADDER = registerNormal("birch_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER));
+    public static final Block DARK_OAK_LADDER = registerNormal("dark_oak_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER));
+    public static final Block JUNGLE_LADDER = registerNormal("jungle_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER));
+    public static final Block WARPED_LADDER = registerNormal("warped_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER));
+    public static final Block CRIMSON_LADDER = registerNormal("crimson_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER));
+    public static final Block IRON_LADDER = registerNormal("iron_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.METAL).requiresTool());
+    public static final Block ACACIA_LADDER = registerNormal("acacia_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER));
+    public static final Block CHAIN_LADDER = registerNormal("chain_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.CHAIN).requiresTool());
+    public static final Block CHERRY_LADDER = registerNormal("cherry_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER));
+    public static final Block BAMBOO_LADDER = registerNormal("bamboo_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.BAMBOO));
+    public static final Block MANGROVE_LADDER = registerNormal("mangrove_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER));
+    public static final Block GOLD_LADDER = registerNormal("gold_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.METAL).requiresTool());
+    public static final Block COPPER_LADDER = registerOxidizable("copper_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).ticksRandomly(), Oxidizable.OxidationLevel.UNAFFECTED);
+    public static final Block EXPOSED_COPPER_LADDER = registerOxidizable("exposed_copper_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).ticksRandomly(), Oxidizable.OxidationLevel.EXPOSED);
+    public static final Block WEATHERED_COPPER_LADDER = registerOxidizable("weathered_copper_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).ticksRandomly(), Oxidizable.OxidationLevel.WEATHERED);
+    public static final Block OXIDIZED_COPPER_LADDER = registerOxidizable("oxidized_copper_ladder", AbstractBlock.Settings.copy(Blocks.LADDER), Oxidizable.OxidationLevel.OXIDIZED);
+    public static final Block WAXED_COPPER_LADDER = registerOxidizable("waxed_copper_ladder", AbstractBlock.Settings.copy(Blocks.LADDER), Oxidizable.OxidationLevel.UNAFFECTED);
+    public static final Block WAXED_EXPOSED_COPPER_LADDER = registerOxidizable("waxed_exposed_copper_ladder", AbstractBlock.Settings.copy(Blocks.LADDER), Oxidizable.OxidationLevel.EXPOSED);
+    public static final Block WAXED_WEATHERED_COPPER_LADDER = registerOxidizable("waxed_weathered_copper_ladder", AbstractBlock.Settings.copy(Blocks.LADDER), Oxidizable.OxidationLevel.WEATHERED);
+    public static final Block WAXED_OXIDIZED_COPPER_LADDER = registerOxidizable("waxed_oxidized_copper_ladder", AbstractBlock.Settings.copy(Blocks.LADDER), Oxidizable.OxidationLevel.OXIDIZED);
+
+    private static Block registerNormal(String name, AbstractBlock.Settings settings) {
+        RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, MoreLadders.id(name));
+        return registerBlock(name, new LadderBlock(settings.registryKey(key)));
+    }
+
+    private static Block registerOxidizable(String name, AbstractBlock.Settings settings, Oxidizable.OxidationLevel level) {
+        RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, MoreLadders.id(name));
+        return registerBlock(name, new OxidizableLadder(settings.registryKey(key), level));
+    }
 
     private static Block registerBlock(String name, Block block) {
-        Registry.register(Registries.ITEM, MoreLadders.id(name), new BlockItem(block, new Item.Settings()));
+        RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, MoreLadders.id(name));
+        Registry.register(Registries.ITEM, MoreLadders.id(name), new BlockItem(block, new Item.Settings().registryKey(key).useBlockPrefixedTranslationKey()));
         return Registry.register(Registries.BLOCK, MoreLadders.id(name), block);
     }
 

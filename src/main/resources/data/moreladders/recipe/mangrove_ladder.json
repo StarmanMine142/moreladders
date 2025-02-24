@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "group": "more-ladders",
   "key": {
-    "|": {
-      "item": "minecraft:stick"
-    },
-    "#": {
-      "item": "minecraft:mangrove_planks"
-    }
+    "|": "minecraft:stick",
+    "#": "minecraft:mangrove_planks"
   },
   "pattern": [
     "| |",

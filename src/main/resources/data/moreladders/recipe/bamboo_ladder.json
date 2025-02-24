@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "group": "more-ladders",
   "key": {
-    "|": {
-      "item": "minecraft:bamboo"
-    }
+    "|": "minecraft:bamboo"
   },
   "pattern": [
     "| |",
