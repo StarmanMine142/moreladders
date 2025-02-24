@@ -1,11 +1,3 @@
-# ⚠️ No longer maintained! ⚠️
-[The Quark mod](https://modrinth.com/mod/quark) has more ladders. Go use that instead.
-It lacks the Gold, Iron & Copper ladders, but it's always something.
-The "innovations" in the Modding industry make stuff harder.
-New Minecraft version? New gigabytes on my hard drive.
-I'm not longer motivated to continue this project.
-Go fork it, if you really want it.
-
 # More Ladders
 ### Adds more types of ladders to Minecraft
 ### Currently adds 14 ladders:
