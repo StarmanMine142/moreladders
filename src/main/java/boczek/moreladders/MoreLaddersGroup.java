@@ -25,7 +25,6 @@ public class MoreLaddersGroup {
                             entries.add(ModBlocks.BAMBOO_LADDER);
                             entries.add(ModBlocks.MANGROVE_LADDER);
                             entries.add(ModBlocks.GOLD_LADDER);
-                            entries.add(ModBlocks.PALE_OAK_LADDER);
                             entries.add(ModBlocks.COPPER_LADDER);
                             entries.add(ModBlocks.EXPOSED_COPPER_LADDER);
                             entries.add(ModBlocks.WEATHERED_COPPER_LADDER);

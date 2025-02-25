@@ -25,7 +25,6 @@ public class ModBlocks {
     public static final Block BAMBOO_LADDER = registerNormal("bamboo_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.BAMBOO));
     public static final Block MANGROVE_LADDER = registerNormal("mangrove_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER));
     public static final Block GOLD_LADDER = registerNormal("gold_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.METAL).requiresTool());
-    public static final Block PALE_OAK_LADDER = registerNormal("pale_oak_ladder", AbstractBlock.Settings.copy(Blocks.LADDER));
     public static final Block COPPER_LADDER = registerOxidizable("copper_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).ticksRandomly(), Oxidizable.OxidationLevel.UNAFFECTED);
     public static final Block EXPOSED_COPPER_LADDER = registerOxidizable("exposed_copper_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).ticksRandomly(), Oxidizable.OxidationLevel.EXPOSED);
     public static final Block WEATHERED_COPPER_LADDER = registerOxidizable("weathered_copper_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).ticksRandomly(), Oxidizable.OxidationLevel.WEATHERED);
@@ -52,12 +51,27 @@ public class ModBlocks {
     }
 
     public static void initialize() {
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(COPPER_LADDER, EXPOSED_COPPER_LADDER);
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(EXPOSED_COPPER_LADDER, WEATHERED_COPPER_LADDER);
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(WEATHERED_COPPER_LADDER, OXIDIZED_COPPER_LADDER);
+        registerOxidizableBlockPair(COPPER_LADDER, EXPOSED_COPPER_LADDER);
+        registerOxidizableBlockPair(EXPOSED_COPPER_LADDER, WEATHERED_COPPER_LADDER);
+        registerOxidizableBlockPair(WEATHERED_COPPER_LADDER, OXIDIZED_COPPER_LADDER);
         OxidizableBlocksRegistry.registerWaxableBlockPair(COPPER_LADDER, WAXED_COPPER_LADDER);
         OxidizableBlocksRegistry.registerWaxableBlockPair(EXPOSED_COPPER_LADDER, WAXED_EXPOSED_COPPER_LADDER);
         OxidizableBlocksRegistry.registerWaxableBlockPair(WEATHERED_COPPER_LADDER, WAXED_WEATHERED_COPPER_LADDER);
         OxidizableBlocksRegistry.registerWaxableBlockPair(OXIDIZED_COPPER_LADDER, WAXED_OXIDIZED_COPPER_LADDER);
+    }
+
+    // https://github.com/FabricMC/fabric/commit/25d1a6769131730083de120eeee149ff2bbef54c (not implemented for <1.21.4)
+    private static void registerOxidizableBlockPair(Block less, Block more) {
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(less, more);
+        refreshRandomTickCache(less);
+        refreshRandomTickCache(more);
+    }
+
+    private static void refreshRandomTickCache(Block block) {
+        block.getStateManager().getStates().forEach(state -> ((RandomTickCacheRefresher) state).moreladders$refreshRandomTickCache());
+    }
+
+    public interface RandomTickCacheRefresher {
+        void moreladders$refreshRandomTickCache();
     }
 }

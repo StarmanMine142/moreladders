@@ -23,9 +23,8 @@ public abstract class LivingEntityMixin extends Entity {
     @Unique
     private static final TagKey<Block> MAKE_TRAPDOOR_CLIMBABLE_LADDERS = TagKey.of(Registries.BLOCK.getKey(), MoreLadders.id("make_trapdoor_climbable_ladders"));
 
-    public LivingEntityMixin(EntityType<?> type, World world) {
+    private LivingEntityMixin(EntityType<?> type, World world) {
         super(type, world);
-        throw new AssertionError();
     }
 
     @Inject(method = "canEnterTrapdoor", at = @At("HEAD"), cancellable = true)

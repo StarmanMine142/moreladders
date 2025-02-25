@@ -4,6 +4,8 @@
   "package": "boczek.moreladders.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AbstractBlockMixin",
+    "AbstractBlockStateMixin",
     "LivingEntityMixin"
   ],
   "injectors": {
