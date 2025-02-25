@@ -5,10 +5,10 @@
   "name": "More Ladders",
   "description": "Adds more types of ladders to Minecraft",
   "authors": [
-    "Boczek"
+    "nieboczek"
   ],
   "contact": {
-    "repo": "https://github.com/Bocz3k/more-ladders"
+    "repo": "https://github.com/nieboczek/more-ladders"
   },
   "license": "GPL-3.0",
   "icon": "assets/moreladders/icon.png",
