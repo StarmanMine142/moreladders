@@ -1,6 +1,6 @@
 # More Ladders
 ### Adds more types of ladders to Minecraft
-### Currently adds 14 ladders:
+### Currently adds 15 ladders:
 - Acacia ladder
 - Bamboo ladder
 - Birch ladder
