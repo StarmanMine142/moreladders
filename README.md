@@ -14,7 +14,7 @@
 - Spruce ladder
 - Warped ladder
 - Gold ladder
-- Pale oak ladder
+- Pale oak ladder (1.21.4+)
 - Copper ladder
 
 ## Notes
