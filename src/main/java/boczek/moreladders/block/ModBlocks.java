@@ -10,7 +10,6 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
 
 public class ModBlocks {
     public static final Block SPRUCE_LADDER = registerNormal("spruce_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER));
@@ -26,6 +25,7 @@ public class ModBlocks {
     public static final Block BAMBOO_LADDER = registerNormal("bamboo_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.BAMBOO));
     public static final Block MANGROVE_LADDER = registerNormal("mangrove_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.LADDER));
     public static final Block GOLD_LADDER = registerNormal("gold_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).sounds(BlockSoundGroup.METAL).requiresTool());
+    public static final Block PALE_OAK_LADDER = registerNormal("pale_oak_ladder", AbstractBlock.Settings.copy(Blocks.LADDER));
     public static final Block COPPER_LADDER = registerOxidizable("copper_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).ticksRandomly(), Oxidizable.OxidationLevel.UNAFFECTED);
     public static final Block EXPOSED_COPPER_LADDER = registerOxidizable("exposed_copper_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).ticksRandomly(), Oxidizable.OxidationLevel.EXPOSED);
     public static final Block WEATHERED_COPPER_LADDER = registerOxidizable("weathered_copper_ladder", AbstractBlock.Settings.copy(Blocks.LADDER).ticksRandomly(), Oxidizable.OxidationLevel.WEATHERED);
@@ -37,15 +37,15 @@ public class ModBlocks {
 
     private static Block registerNormal(String name, AbstractBlock.Settings settings) {
         RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, MoreLadders.id(name));
-        return registerBlock(name, new LadderBlock(settings.registryKey(key)));
+        return register(name, new LadderBlock(settings.registryKey(key)));
     }
 
     private static Block registerOxidizable(String name, AbstractBlock.Settings settings, Oxidizable.OxidationLevel level) {
         RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, MoreLadders.id(name));
-        return registerBlock(name, new OxidizableLadder(settings.registryKey(key), level));
+        return register(name, new OxidizableLadder(settings.registryKey(key), level));
     }
 
-    private static Block registerBlock(String name, Block block) {
+    private static Block register(String name, Block block) {
         RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, MoreLadders.id(name));
         Registry.register(Registries.ITEM, MoreLadders.id(name), new BlockItem(block, new Item.Settings().registryKey(key).useBlockPrefixedTranslationKey()));
         return Registry.register(Registries.BLOCK, MoreLadders.id(name), block);
