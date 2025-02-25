@@ -37,4 +37,5 @@ Make suggestions/issues [via Issues](https://github.com/Bocz3k/more-ladders/issu
 <img src="https://raw.githubusercontent.com/Bocz3k/more-ladders/1.20.4/images/spruce.png" width="350">
 <img src="https://raw.githubusercontent.com/Bocz3k/more-ladders/1.20.4/images/warped.png" width="350">
 <img src="https://raw.githubusercontent.com/Bocz3k/more-ladders/1.20.4/images/gold.png" width="350">
+<img src="https://raw.githubusercontent.com/Bocz3k/more-ladders/1.20.4/images/pale_oak.png" width="350">
 <img src="https://raw.githubusercontent.com/Bocz3k/more-ladders/1.20.4/images/copper.png" width="350">
